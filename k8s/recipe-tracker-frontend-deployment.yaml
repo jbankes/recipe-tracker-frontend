@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipe-tracker-frontend-deployment
+  labels:
+    app: recipe-tracker-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: recipe-tracker-frontend
+  template:
+    metadata:
+      labels:
+        app: recipe-tracker-frontend
+    spec:
+      containers:
+        - name: recipe-tracker-frontend
+          image: jbankes/recipe-tracker-frontend:latest
+          ports:
+            - containerPort: 4200
+            
